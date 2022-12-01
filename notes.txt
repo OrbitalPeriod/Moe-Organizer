@@ -1,0 +1,12 @@
+tables:
+    taglist
+        imageID
+        tag
+        
+    imagelist
+        imageID
+        filename
+        iamgehash
+    
+    pixivids
+        pixivID

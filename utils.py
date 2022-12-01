@@ -13,6 +13,18 @@ class keys:
         with open("config.json") as f:
             data = json.load(f)
         return data["pixiv"]
+    def getGelboorukey():
+        with open("config.json") as f:
+            data = json.load(f)
+        return data["gelbooru_key"]
+    def getGelbooruUser():
+        with open("config.json") as f:
+            data = json.load(f)
+        return data["gelbooru_user"]
+    def getPixivUID():
+        with open("config.json") as f:
+            data = json.load(f)
+        return data["pixivUID"]
 class folders:
     def getLongTermStorage():
         with open("config.json") as f:
@@ -26,6 +38,10 @@ class folders:
         with open("config.json") as f:
             data = json.load(f)
         return data["short term storage dir"]
+    def getDBLocation():
+        with open("config.json") as f:
+            data = json.load(f)
+        return data["database"]
     
     
 
