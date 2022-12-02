@@ -54,7 +54,12 @@ def getImageID(tag):
     cur.execute(f"SELECT imageID FROM taglist WHERE tag='{tag}'")
     imageID = cur.fetchall()
     con.close()
-    return imageID
+
+    imageIDs = []
+    for i in range(0, len(imageID)):
+        imageIDs.append(imageID[i][0])
+
+    return imageIDs
 
 def getmaxID():
     con = getCon()
@@ -97,3 +102,21 @@ def addpixivID(id):
 
     con.commit()
     con.close()
+
+def topTags():
+    con = getCon()
+    cur = con.cursor()
+
+    cur.execute(f'SELECT tag FROM taglist')
+    results = cur.fetchall()
+
+    counting_dict = {}
+    for result in results:
+        if result[0] in counting_dict:
+            counting_dict[result[0]] = counting_dict[result[0]] + 1
+        else:
+            counting_dict[result[0]] = 1
+    
+    organized = sorted(counting_dict.items(), key= lambda x: x[1], reverse=True)
+
+    return organized

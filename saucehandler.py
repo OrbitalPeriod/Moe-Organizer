@@ -1,5 +1,5 @@
 #from saucenao_api import SauceNao
-from pysaucenao import SauceNao, GenericSource, BooruSource, PixivSource
+from pysaucenao import SauceNao, GenericSource, BooruSource, PixivSource, TooManyFailedRequestsException
 from os import listdir, path
 import time
 from pygelbooru import Gelbooru
@@ -24,7 +24,12 @@ class saucehandler:
             image.save(self.short_term_storage + "//" + "xxxxxxx.png")
             editedfile = "xxxxxxx.png"
     
-        result = await self.API.from_file(self.short_term_storage + "//" + editedfile)
+        try:
+            result = await self.API.from_file(self.short_term_storage + "//" + editedfile)
+        except TooManyFailedRequestsException:
+            print("daily limit exceeded, going into sleep")
+            time.sleep(43200)
+            return self.processFile(file)
         
         isOnPixiv = False
         isOnBooru = False

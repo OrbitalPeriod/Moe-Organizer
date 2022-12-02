@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Moe-organizer</title>
+</head>
+<body>
+
+<p>Search tag:</p>
+<form> 
+    tag: <br> <input type="text" id="tag_requested" name="input_tag"></br>
+</form>
+<form action="">
+    see top tags: <br> <input type="submit" id="request_toptags" name="request_toptags" value="request top tags"></br>
+</form>
+
+
+
+<script>
+
+    function show_image(src){
+        var img = document.createElement("img");
+        img.onload = function(){
+            alert(this.width + x + this.height);
+        }
+
+        img.src = ["storage//long_term//", src].join("");
+        img.alt = "test";
+
+        document.body.appendChild(img);
+    }
+    
+</script>
+
+</body>
+</html>

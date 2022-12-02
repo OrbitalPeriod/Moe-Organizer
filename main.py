@@ -9,6 +9,7 @@ from PIL import Image
 import imagehash
 from imagefetcher import PixivFetcher
 import threading
+from http_server import run_server
 
 async def tagLoop():
     sauce = saucehandler()
@@ -47,6 +48,10 @@ def fetchImageLoop():
         time.sleep(300)
         pixiv.refresh()
 
+def webserver():
+    run_server()
+
+
    
 
 
@@ -55,9 +60,11 @@ def fetchImageLoop():
 
 if __name__ == "__main__":
     fetchThread = threading.Thread(target=fetchImageLoop)
+    webserverThread = threading.Thread(target=webserver)
     #fetchThread.start()
+    webserverThread.start()
 
-    asyncio.run(tagLoop())
+    #asyncio.run(tagLoop())
 
 
 
