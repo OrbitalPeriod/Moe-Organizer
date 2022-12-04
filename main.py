@@ -32,7 +32,7 @@ async def tagLoop():
                 continue
 
             oldFilePath = utils.folders.getShortTermStorage() + "//" + file
-            imageID = database.getmaxID() + 1
+            imageID = int(database.getmaxID()) + 1
             PernamentFilePath = utils.folders.getLongTermStorage() + "//" + str(imageID) + ".png"
 
             data = await sauce.processFile(file)
