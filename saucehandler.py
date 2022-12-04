@@ -69,7 +69,7 @@ class saucehandler:
         elif (not (isOnPixiv or isOnBooru)):
             print("not on pixiv or booru")
             return (file, ["Not found"])
-        elif (gelbooruLink != ""): # 'https://gelbooru.com/index.php?page=post&s=view&id=5421359'
+        elif (gelbooruLink != ""):
             id = gelbooruLink.split("=")[-1]
             try:
                 post = await self.gelAPI.get_post(post_id=id)

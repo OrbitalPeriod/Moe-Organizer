@@ -1,3 +1,6 @@
 storage
 config.json
 .vscode
+__pycache__
+*.db
+.git

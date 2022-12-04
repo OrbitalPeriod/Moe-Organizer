@@ -2,7 +2,7 @@ import utils
 import database
 from saucehandler import saucehandler
 import asyncio
-from os import listdir, remove
+from os import listdir, remove, rename
 import shutil
 import time
 from PIL import Image
@@ -21,6 +21,16 @@ async def tagLoop():
     while True:
         files = listdir(utils.folders.getShortTermStorage())
         for file in files:
+            if ".jpeg" in file:
+                rename(utils.folders.getShortTermStorage() + "//" + file, utils.folders.getShortTermStorage() + "//" + file.split(".")[0] + ".png")
+                file = file.split(".")[0] + ".png"
+            elif ".jpg" in file:
+                rename(utils.folders.getShortTermStorage() + "//" + file, utils.folders.getShortTermStorage() + "//" + file.split(".")[0] + ".png")
+                file = file.split(".")[0] + ".png"
+            elif ".png" not in file:
+                shutil.move(utils.folders.getShortTermStorage() + "//" + file, utils.folders.getunsuportedStorage() + "//" + file)
+                continue
+
             oldFilePath = utils.folders.getShortTermStorage() + "//" + file
             imageID = database.getmaxID() + 1
             PernamentFilePath = utils.folders.getLongTermStorage() + "//" + str(imageID) + ".png"
@@ -61,10 +71,10 @@ def webserver():
 if __name__ == "__main__":
     fetchThread = threading.Thread(target=fetchImageLoop)
     webserverThread = threading.Thread(target=webserver)
-    #fetchThread.start()
+    fetchThread.start()
     webserverThread.start()
 
-    #asyncio.run(tagLoop())
+    asyncio.run(tagLoop())
 
 
 

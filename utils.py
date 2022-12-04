@@ -42,6 +42,10 @@ class folders:
         with open("config.json") as f:
             data = json.load(f)
         return data["database"]
+    def getunsuportedStorage():
+        with open("config.json") as f:
+            data = json.load(f)
+        return data["unsuported formats dir"]
     
     
 
