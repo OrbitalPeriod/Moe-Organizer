@@ -1,0 +1,13 @@
+{
+      "pixiv": "",
+      "pixivUID": "",
+      "twitter": "",
+      "saucenao": "",
+      "gelbooru_key": "",
+      "gelbooru_user": "",
+      "long term storage dir": "storage//long_term",
+      "short term storage dir": "storage//short_term",
+      "unsuported formats dir": "storage//other_formats",
+      "import folder": "storage//import",
+      "database": "storage/database.db"
+}
