@@ -1,8 +1,8 @@
 git clone the repo  
 cd into the folder  
 run 'python3 -m venv .'  
-run 'Scripts/activate.bat'  
-run 'pip install requirements.txt'  
+run 'Scripts\activate.bat'  
+run 'pip install -r requirements.txt'  
 
 enter the required params into config.json (pixiv, pixivUID and saucenao are all mandatory, the pathfiles can all be customized to your liking)  
 
