@@ -1,0 +1,14 @@
+sqlite3
+base64
+urllib
+pixivapi
+shutil
+time
+pathlib
+asyncio
+pillow
+imagehash
+threading
+pysaucenao
+pygelbooru
+json
