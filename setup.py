@@ -32,7 +32,7 @@ def createDatabase():
     cur = con.cursor()
 
     cur.execute("CREATE TABLE taglist (imageID, tag)")
-    cur.execute("CREATE TABLE imagelist (imageID, filename, imagehash)")
+    cur.execute("CREATE TABLE imagelist (imageID, filename, hash)")
     cur.execute("CREATE TABLE pixivids (pixivID)")
 
     con.commit()
